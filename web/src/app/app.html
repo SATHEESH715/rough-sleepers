@@ -1,0 +1,18 @@
+<main>
+  <h1 data-testid="page-title">Rough sleeper outreach</h1>
+  <table data-testid="item-table">
+    <thead>
+      <tr><th>Number</th><th>Outreach visit</th><th>Location</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      @for (i of items(); track i.id) {
+        <tr [attr.data-testid]="'item-row-' + i.id">
+          <td>{{ i.number }}</td>
+          <td>{{ i.name }}</td>
+          <td>{{ i.detail }}</td>
+          <td>{{ i.status }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</main>
