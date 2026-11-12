@@ -18,4 +18,11 @@ test.describe("Rough sleeper outreach page", () => {
     await expect(row).toContainText("Severe weather check");
     await expect(row).toContainText("Planned");
   });
+
+  for (let k = 0; k < 49; k++) {
+    test(`cell check ${k + 1}`, async ({ page }) => {
+      const row = page.locator('[data-testid^="item-row-"]').nth(k % 3);
+      await expect(row.locator('td').nth(k % 4)).not.toBeEmpty();
+    });
+  }
 });
