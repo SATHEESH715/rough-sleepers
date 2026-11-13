@@ -51,13 +51,6 @@ public class StripeDataTests
     [DataRow(32)]
     [DataRow(33)]
     [DataRow(34)]
-    [DataRow(35)]
-    [DataRow(36)]
-    [DataRow(37)]
-    [DataRow(38)]
-    [DataRow(39)]
-    [DataRow(40)]
-    [DataRow(41)]
     public void Item_HasExpectedShape(int k)
     {
         var item = StripeData.GetAll()[k % 3];
@@ -65,4 +58,15 @@ public class StripeDataTests
         Assert.IsFalse(string.IsNullOrWhiteSpace(item.Status));
         Assert.IsTrue(item.Number > 0);
     }
+
+    [TestMethod]
+    [DataRow(0)]
+    [DataRow(1)]
+    [DataRow(2)]
+    [DataRow(3)]
+    [DataRow(4)]
+    [DataRow(5)]
+    [DataRow(6)]
+    public void KnownFailure_FailsOnPurpose(int k) =>
+        Assert.Fail($"Check {k + 1} fails on purpose, to show a failing stripe in the report.");
 }
